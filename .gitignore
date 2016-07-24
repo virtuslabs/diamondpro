@@ -1,0 +1,13 @@
+/node_modules
+client/node_modules
+client/bower_components
+client/tmp
+server/node_modules
+docker-machine-driver-scaleway
+# App artifacts
+server/_build
+server/db
+server/deps
+server/*.ez
+server/config/prod.secret.exs
+server/rel/*
