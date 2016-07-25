@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar">
@@ -7,6 +7,9 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
+      <!-- <a class="navbar-brand" href="#">
+        <img width="50" height="50" style="top: 0"alt="Brand" src="logo.jpg">
+      </a> -->
       {{#link-to 'index' class="navbar-brand"}}Diamond Pro Mobile Detailing{{/link-to}}
     </div>
 
@@ -14,9 +17,23 @@
       <ul class="nav navbar-nav">
             {{#link-to 'index' tagName="li"}}<a href="">Home</a>{{/link-to}}
             {{#link-to 'clients' tagName="li"}}<a href="">Clients</a>{{/link-to}}
-            <li><a href="">Detailing Services</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Detailing Services<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                {{#link-to 'packages' tagName="li"}}<a href="">Packages</a>{{/link-to}}
+              </ul>
+            </li>
             <li><a href="">Auto Concierge Services</a></li>
             <li><a href="">Blog</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hello User! <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Login</a></li>
+            <li><a href="#">Logout</a></li>
+          </ul>
+        </li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

@@ -5817,4 +5817,21 @@ button.close {
   .hidden-print {
     display: none !important; } }
 
+html {
+  position: relative;
+  min-height: 100%; }
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 100px;
+  padding-top: 100px; }
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #7F8C8D; }
+
 /*# sourceMappingURL=client.css.map */

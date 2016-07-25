@@ -11,10 +11,16 @@ Router.map(function() {
       this.route('edit');
     });
     this.route('new');
-    this.route('edit', {'path': '/:client_id/edit'});
+    // this.route('edit', {'path': '/:client_id/edit'});
   });
   this.route('appointments');
-  this.route('packages');
+  this.route('packages', function() {
+    this.route('new');
+    // this.route('edit', {'path': '/:client_id/edit'});
+    this.route('package', {'path': '/:package_id'}, function() {
+      this.route('edit');
+    });
+  });
 });
 
 export default Router;

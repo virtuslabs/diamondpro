@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   actions: {
-    editClient: function(client){
+    saveClient: function(client){
       client.save().then(() => this.transitionTo('clients.client', client.id))
     },
     deleteClient: function(client){
