@@ -13,6 +13,7 @@ defmodule Server.PackageView do
     %{id: package.id,
       title: package.title,
       description: package.description,
-      price: package.price}
+      price: package.price,
+      package_type: package.package_type}
   end
 end

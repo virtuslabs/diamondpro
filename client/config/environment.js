@@ -27,6 +27,7 @@ module.exports = function(environment) {
     ENV.APP.LOG_VIEW_LOOKUPS = true;
 
     ENV.apiHost = "http://localhost:4000";
+    ENV.apiNamespace = "api";
   }
 
   if (environment === 'test') {

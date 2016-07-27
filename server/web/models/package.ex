@@ -5,6 +5,7 @@ defmodule Server.Package do
     field :title, :string
     field :description, :string
     field :price, :decimal
+    field :package_type, :string
     belongs_to :appointment, Server.Appointment
 
     timestamps()
@@ -15,7 +16,7 @@ defmodule Server.Package do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:title, :description, :price])
-    |> validate_required([:title, :description, :price])
+    |> cast(params, [:title, :description, :price, :package_type])
+    |> validate_required([:title, :description, :price, :package_type])
   end
 end

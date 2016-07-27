@@ -3,7 +3,13 @@ defmodule Server.PackageController do
 
   alias Server.Package
 
-  def index(conn, _params) do
+  def index(conn, %{"package_type" => package_type}) do
+    packages = Repo.all(from p in Package, where: p.package_type == ^package_type) |> Repo.preload([:appointment])
+    IO.inspect(packages)
+    render(conn, "index.json", packages: packages)
+  end
+
+  def index(conn, params) do
     packages = Repo.all(Package)  |> Repo.preload([:appointment])
     render(conn, "index.json", packages: packages)
   end
@@ -28,6 +34,7 @@ defmodule Server.PackageController do
     package = Repo.get!(Package, id) |> Repo.preload([:appointment])
     render(conn, "show.json", package: package)
   end
+
 
   def update(conn, %{"id" => id, "package" => package_params}) do
     package = Repo.get!(Package, id)

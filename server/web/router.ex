@@ -10,7 +10,11 @@ defmodule Server.Router do
   end
 
   pipeline :api do
-    plug :accepts, ["json"]
+    plug :accepts, ["json", "json-api"]
+  end
+
+  pipeline :admin do
+
   end
 
   scope "/", Server do
@@ -23,14 +27,28 @@ defmodule Server.Router do
   scope "/api", Server do
     pipe_through :api
 
-    resources "/clients", ClientController, except: [:new, :edit] do
-      resources "/appointments", AppointmentController, except: [:new, :edit] do
-        resources "/packages", PackageController, except: [:new, :edit]
+    resources "/clients", ClientController, only: [:index, :show] do
+      resources "/appointments", AppointmentController, only: [:index, :show] do
+        resources "/packages", PackageController, only: [:index, :show]
       end
     end
-    resources "/appointments", AppointmentController, except: [:new, :edit] do
-      resources "/packages", PackageController, except: [:new, :edit]
+    resources "/appointments", AppointmentController, only: [:index, :show] do
+      resources "/packages", PackageController, only: [:index, :show]
     end
-    resources "/packages", PackageController, except: [:new, :edit]
+    resources "/packages", PackageController, only: [:index, :show]
+  end
+
+  scope "/api/admin", Server, as: :admin do
+    pipe_through :api
+
+    resources "/clients", ClientController do
+      resources "/appointments", AppointmentController do
+        resources "/packages", PackageController
+      end
+    end
+    resources "/appointments", AppointmentController do
+      resources "/packages", PackageController
+    end
+    resources "/packages", PackageController
   end
 end

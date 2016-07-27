@@ -20,7 +20,10 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Detailing Services<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                {{#link-to 'packages' tagName="li"}}<a href="">Packages</a>{{/link-to}}
+                {{#link-to 'packages' (query-params package_type="cars_trucks") tagName="li"}}<a href="">Cars/Trucks</a>{{/link-to}}
+                {{#link-to 'packages' (query-params package_type="rv_motorhome") tagName="li"}}<a href="">RV's/Motorhomes</a>{{/link-to}}
+                {{#link-to 'packages' (query-params package_type="boats_pwc") tagName="li"}}<a href="">Boats/PWC</a>{{/link-to}}
+                {{#link-to 'packages' (query-params package_type="motorcycles") tagName="li"}}<a href="">Motorcycles</a>{{/link-to}}
               </ul>
             </li>
             <li><a href="">Auto Concierge Services</a></li>

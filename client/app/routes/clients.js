@@ -1,8 +1,13 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  model(){
-    return this.store.findAll('client');
+  queryParams: {
+    package_type: {
+      refreshModel: true
+    }
+  },
+  model(params){
+    return this.store.findAll('client', params);
   },
   actions: {
   error(error, transition) {

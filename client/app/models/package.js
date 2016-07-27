@@ -5,5 +5,6 @@ import attr from 'ember-data/attr';
 export default Model.extend({
   title: attr('string'),
   description: attr('string'),
-  price: attr('number')
+  price: attr('number'),
+  package_type: attr('string')
 });

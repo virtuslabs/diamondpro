@@ -1,6 +1,6 @@
 <div class="row-fluid">
   <div class="col-md-2">
-    {{#link-to 'packages.new' class="btn btn-default"}}Add Package{{/link-to}}
+    {{#link-to 'admin.packages.new' class="btn btn-default"}}Add Package{{/link-to}}
     <div class="list-group">
       {{#each model as |package|}}
         {{#link-to 'packages.package' package.id class="list-group-item"}}{{package.title}}{{/link-to}}

@@ -4,7 +4,7 @@ define('client/tests/adapters/application.jshint', ['exports'], function (export
   QUnit.module('JSHint | adapters/application.js');
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
-    assert.ok(true, 'adapters/application.js should pass jshint.');
+    assert.ok(false, 'adapters/application.js should pass jshint.\nadapters/application.js: line 24, col 73, \'Ember\' is not defined.\nadapters/application.js: line 27, col 73, \'Ember\' is not defined.\nadapters/application.js: line 30, col 73, \'Ember\' is not defined.\n\n3 errors');
   });
 });
 define('client/tests/app.jshint', ['exports'], function (exports) {
@@ -14,6 +14,15 @@ define('client/tests/app.jshint', ['exports'], function (exports) {
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
     assert.ok(true, 'app.js should pass jshint.');
+  });
+});
+define('client/tests/controllers/packages.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | controllers/packages.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(false, 'controllers/packages.js should pass jshint.\ncontrollers/packages.js: line 10, col 9, \'package_type\' is not defined.\ncontrollers/packages.js: line 11, col 48, \'package_type\' is not defined.\n\n2 errors');
   });
 });
 define('client/tests/helpers/destroy-app', ['exports', 'ember'], function (exports, _ember) {
@@ -159,6 +168,87 @@ define('client/tests/router.jshint', ['exports'], function (exports) {
     assert.ok(true, 'router.js should pass jshint.');
   });
 });
+define('client/tests/routes/admin/appointments.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | routes/admin/appointments.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'routes/admin/appointments.js should pass jshint.');
+  });
+});
+define('client/tests/routes/admin/clients.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | routes/admin/clients.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(false, 'routes/admin/clients.js should pass jshint.\nroutes/admin/clients.js: line 10, col 25, Missing semicolon.\nroutes/admin/clients.js: line 8, col 16, \'transition\' is defined but never used.\n\n2 errors');
+  });
+});
+define('client/tests/routes/admin/clients/client.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | routes/admin/clients/client.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'routes/admin/clients/client.js should pass jshint.');
+  });
+});
+define('client/tests/routes/admin/clients/client/edit.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | routes/admin/clients/client/edit.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(false, 'routes/admin/clients/client/edit.js should pass jshint.\nroutes/admin/clients/client/edit.js: line 6, col 79, Missing semicolon.\n\n1 error');
+  });
+});
+define('client/tests/routes/admin/clients/new.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | routes/admin/clients/new.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'routes/admin/clients/new.js should pass jshint.');
+  });
+});
+define('client/tests/routes/admin/packages.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | routes/admin/packages.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'routes/admin/packages.js should pass jshint.');
+  });
+});
+define('client/tests/routes/admin/packages/new.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | routes/admin/packages/new.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'routes/admin/packages/new.js should pass jshint.');
+  });
+});
+define('client/tests/routes/admin/packages/package.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | routes/admin/packages/package.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'routes/admin/packages/package.js should pass jshint.');
+  });
+});
+define('client/tests/routes/admin/packages/package/edit.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | routes/admin/packages/package/edit.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(false, 'routes/admin/packages/package/edit.js should pass jshint.\nroutes/admin/packages/package/edit.js: line 7, col 97, Missing semicolon.\n\n1 error');
+  });
+});
 define('client/tests/routes/appointments.jshint', ['exports'], function (exports) {
   'use strict';
 
@@ -174,7 +264,7 @@ define('client/tests/routes/clients.jshint', ['exports'], function (exports) {
   QUnit.module('JSHint | routes/clients.js');
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'routes/clients.js should pass jshint.\nroutes/clients.js: line 10, col 25, Missing semicolon.\nroutes/clients.js: line 8, col 16, \'transition\' is defined but never used.\n\n2 errors');
+    assert.ok(false, 'routes/clients.js should pass jshint.\nroutes/clients.js: line 15, col 25, Missing semicolon.\nroutes/clients.js: line 13, col 16, \'transition\' is defined but never used.\n\n2 errors');
   });
 });
 define('client/tests/routes/clients/client/client.jshint', ['exports'], function (exports) {
@@ -192,7 +282,7 @@ define('client/tests/routes/clients/client/edit.jshint', ['exports'], function (
   QUnit.module('JSHint | routes/clients/client/edit.js');
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'routes/clients/client/edit.js should pass jshint.\nroutes/clients/client/edit.js: line 6, col 79, Missing semicolon.\n\n1 error');
+    assert.ok(true, 'routes/clients/client/edit.js should pass jshint.');
   });
 });
 define('client/tests/routes/clients/new.jshint', ['exports'], function (exports) {
@@ -228,7 +318,7 @@ define('client/tests/routes/packages/package/edit.jshint', ['exports'], function
   QUnit.module('JSHint | routes/packages/package/edit.js');
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'routes/packages/package/edit.js should pass jshint.\nroutes/packages/package/edit.js: line 7, col 97, Missing semicolon.\n\n1 error');
+    assert.ok(true, 'routes/packages/package/edit.js should pass jshint.');
   });
 });
 define('client/tests/routes/packages/package/package.jshint', ['exports'], function (exports) {
@@ -251,6 +341,28 @@ define('client/tests/test-helper.jshint', ['exports'], function (exports) {
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
     assert.ok(true, 'test-helper.js should pass jshint.');
+  });
+});
+define('client/tests/unit/controllers/packages-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+
+  (0, _emberQunit.moduleFor)('controller:packages', 'Unit | Controller | packages', {
+    // Specify the other units that are required for this test.
+    // needs: ['controller:foo']
+  });
+
+  // Replace this with your real tests.
+  (0, _emberQunit.test)('it exists', function (assert) {
+    var controller = this.subject();
+    assert.ok(controller);
+  });
+});
+define('client/tests/unit/controllers/packages-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | unit/controllers/packages-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/controllers/packages-test.js should pass jshint.');
   });
 });
 define('client/tests/unit/models/appointment-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
@@ -317,6 +429,195 @@ define('client/tests/unit/models/package-test.jshint', ['exports'], function (ex
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
     assert.ok(true, 'unit/models/package-test.js should pass jshint.');
+  });
+});
+define('client/tests/unit/routes/admin/appointments-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+
+  (0, _emberQunit.moduleFor)('route:admin/appointments', 'Unit | Route | admin/appointments', {
+    // Specify the other units that are required for this test.
+    // needs: ['controller:foo']
+  });
+
+  (0, _emberQunit.test)('it exists', function (assert) {
+    var route = this.subject();
+    assert.ok(route);
+  });
+});
+define('client/tests/unit/routes/admin/appointments-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | unit/routes/admin/appointments-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/routes/admin/appointments-test.js should pass jshint.');
+  });
+});
+define('client/tests/unit/routes/admin/clients-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+
+  (0, _emberQunit.moduleFor)('route:admin/clients', 'Unit | Route | admin/clients', {
+    // Specify the other units that are required for this test.
+    // needs: ['controller:foo']
+  });
+
+  (0, _emberQunit.test)('it exists', function (assert) {
+    var route = this.subject();
+    assert.ok(route);
+  });
+});
+define('client/tests/unit/routes/admin/clients-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | unit/routes/admin/clients-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/routes/admin/clients-test.js should pass jshint.');
+  });
+});
+define('client/tests/unit/routes/admin/clients/client-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+
+  (0, _emberQunit.moduleFor)('route:admin/clients/client', 'Unit | Route | admin/clients/client', {
+    // Specify the other units that are required for this test.
+    // needs: ['controller:foo']
+  });
+
+  (0, _emberQunit.test)('it exists', function (assert) {
+    var route = this.subject();
+    assert.ok(route);
+  });
+});
+define('client/tests/unit/routes/admin/clients/client-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | unit/routes/admin/clients/client-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/routes/admin/clients/client-test.js should pass jshint.');
+  });
+});
+define('client/tests/unit/routes/admin/clients/client/edit-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+
+  (0, _emberQunit.moduleFor)('route:admin/clients/client/edit', 'Unit | Route | admin/clients/client/edit', {
+    // Specify the other units that are required for this test.
+    // needs: ['controller:foo']
+  });
+
+  (0, _emberQunit.test)('it exists', function (assert) {
+    var route = this.subject();
+    assert.ok(route);
+  });
+});
+define('client/tests/unit/routes/admin/clients/client/edit-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | unit/routes/admin/clients/client/edit-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/routes/admin/clients/client/edit-test.js should pass jshint.');
+  });
+});
+define('client/tests/unit/routes/admin/clients/new-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+
+  (0, _emberQunit.moduleFor)('route:admin/clients/new', 'Unit | Route | admin/clients/new', {
+    // Specify the other units that are required for this test.
+    // needs: ['controller:foo']
+  });
+
+  (0, _emberQunit.test)('it exists', function (assert) {
+    var route = this.subject();
+    assert.ok(route);
+  });
+});
+define('client/tests/unit/routes/admin/clients/new-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | unit/routes/admin/clients/new-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/routes/admin/clients/new-test.js should pass jshint.');
+  });
+});
+define('client/tests/unit/routes/admin/packages-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+
+  (0, _emberQunit.moduleFor)('route:admin/packages', 'Unit | Route | admin/packages', {
+    // Specify the other units that are required for this test.
+    // needs: ['controller:foo']
+  });
+
+  (0, _emberQunit.test)('it exists', function (assert) {
+    var route = this.subject();
+    assert.ok(route);
+  });
+});
+define('client/tests/unit/routes/admin/packages-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | unit/routes/admin/packages-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/routes/admin/packages-test.js should pass jshint.');
+  });
+});
+define('client/tests/unit/routes/admin/packages/new-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+
+  (0, _emberQunit.moduleFor)('route:admin/packages/new', 'Unit | Route | admin/packages/new', {
+    // Specify the other units that are required for this test.
+    // needs: ['controller:foo']
+  });
+
+  (0, _emberQunit.test)('it exists', function (assert) {
+    var route = this.subject();
+    assert.ok(route);
+  });
+});
+define('client/tests/unit/routes/admin/packages/new-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | unit/routes/admin/packages/new-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/routes/admin/packages/new-test.js should pass jshint.');
+  });
+});
+define('client/tests/unit/routes/admin/packages/package-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+
+  (0, _emberQunit.moduleFor)('route:admin/packages/package', 'Unit | Route | admin/packages/package', {
+    // Specify the other units that are required for this test.
+    // needs: ['controller:foo']
+  });
+
+  (0, _emberQunit.test)('it exists', function (assert) {
+    var route = this.subject();
+    assert.ok(route);
+  });
+});
+define('client/tests/unit/routes/admin/packages/package-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | unit/routes/admin/packages/package-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/routes/admin/packages/package-test.js should pass jshint.');
+  });
+});
+define('client/tests/unit/routes/admin/packages/package/edit-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+
+  (0, _emberQunit.moduleFor)('route:admin/packages/package/edit', 'Unit | Route | admin/packages/package/edit', {
+    // Specify the other units that are required for this test.
+    // needs: ['controller:foo']
+  });
+
+  (0, _emberQunit.test)('it exists', function (assert) {
+    var route = this.subject();
+    assert.ok(route);
+  });
+});
+define('client/tests/unit/routes/admin/packages/package/edit-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | unit/routes/admin/packages/package/edit-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/routes/admin/packages/package/edit-test.js should pass jshint.');
   });
 });
 define('client/tests/unit/routes/appointments-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
