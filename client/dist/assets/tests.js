@@ -22,7 +22,7 @@ define('client/tests/controllers/packages.jshint', ['exports'], function (export
   QUnit.module('JSHint | controllers/packages.js');
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'controllers/packages.js should pass jshint.\ncontrollers/packages.js: line 10, col 9, \'package_type\' is not defined.\ncontrollers/packages.js: line 11, col 48, \'package_type\' is not defined.\n\n2 errors');
+    assert.ok(true, 'controllers/packages.js should pass jshint.');
   });
 });
 define('client/tests/helpers/destroy-app', ['exports', 'ember'], function (exports, _ember) {

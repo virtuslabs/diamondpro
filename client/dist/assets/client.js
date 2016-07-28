@@ -71,18 +71,27 @@ define('client/controllers/packages', ['exports', 'ember'], function (exports, _
   exports['default'] = _ember['default'].Controller.extend({
     queryParams: ['package_type'],
     package_type: null,
-
-    filteredPackages: _ember['default'].computed('package_type', 'model', function () {
-      var packages = this.get('model');
-
-      if (package_type) {
-        return packages.filterBy('package_type', package_type);
-      } else {
-        return packages;
-      }
+    is_cars_trucks: _ember['default'].computed("package_type", function () {
+      return this.get("package_type") === "cars_trucks" ? true : false;
+    }),
+    is_rvs_motorhomes: _ember['default'].computed("package_type", function () {
+      return this.get("package_type") === "rv_motorhome" ? true : false;
+    }),
+    is_boats_pwc: _ember['default'].computed("package_type", function () {
+      return this.get("package_type") === "boats_pwc" ? true : false;
     })
   });
 });
+// filteredPackages: Ember.computed('package_type', 'model', function() {
+//   var package_type = this.get('package_type');
+//   var packages = this.get('model');
+//
+//   if (package_type) {
+//     return packages.filterBy('package_type', package_type);
+//   } else {
+//     return packages;
+//   }
+// })
 define('client/helpers/pluralize', ['exports', 'ember-inflector/lib/helpers/pluralize'], function (exports, _emberInflectorLibHelpersPluralize) {
   exports['default'] = _emberInflectorLibHelpersPluralize['default'];
 });
@@ -482,9 +491,15 @@ define("client/routes/clients/client/edit", ["exports"], function (exports) {});
 define("client/routes/clients/new", ["exports"], function (exports) {});
 define('client/routes/packages', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Route.extend({
-    // model(){
-    // return this.store.findAll('package');
-    // }
+    queryParams: {
+      package_type: {
+        refreshModel: true
+      }
+    },
+    model: function model(params) {
+      // console.log('Params: ', params);
+      return this.store.query('package', params);
+    }
   });
 });
 define('client/routes/packages/new', ['exports', 'ember'], function (exports, _ember) {
@@ -3398,10 +3413,234 @@ define("client/templates/packages", ["exports"], function (exports) {
             "source": null,
             "start": {
               "line": 3,
+              "column": 2
+            },
+            "end": {
+              "line": 5,
+              "column": 2
+            }
+          },
+          "moduleName": "client/templates/packages.hbs"
+        },
+        isEmpty: false,
+        arity: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode("    Car/Truck Packages\n");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes() {
+          return [];
+        },
+        statements: [],
+        locals: [],
+        templates: []
+      };
+    })();
+    var child1 = (function () {
+      var child0 = (function () {
+        return {
+          meta: {
+            "fragmentReason": false,
+            "revision": "Ember@2.6.2",
+            "loc": {
+              "source": null,
+              "start": {
+                "line": 5,
+                "column": 2
+              },
+              "end": {
+                "line": 7,
+                "column": 2
+              }
+            },
+            "moduleName": "client/templates/packages.hbs"
+          },
+          isEmpty: false,
+          arity: 0,
+          cachedFragment: null,
+          hasRendered: false,
+          buildFragment: function buildFragment(dom) {
+            var el0 = dom.createDocumentFragment();
+            var el1 = dom.createTextNode("    RV/Motorhome Packages\n");
+            dom.appendChild(el0, el1);
+            return el0;
+          },
+          buildRenderNodes: function buildRenderNodes() {
+            return [];
+          },
+          statements: [],
+          locals: [],
+          templates: []
+        };
+      })();
+      var child1 = (function () {
+        var child0 = (function () {
+          return {
+            meta: {
+              "fragmentReason": false,
+              "revision": "Ember@2.6.2",
+              "loc": {
+                "source": null,
+                "start": {
+                  "line": 7,
+                  "column": 2
+                },
+                "end": {
+                  "line": 9,
+                  "column": 2
+                }
+              },
+              "moduleName": "client/templates/packages.hbs"
+            },
+            isEmpty: false,
+            arity: 0,
+            cachedFragment: null,
+            hasRendered: false,
+            buildFragment: function buildFragment(dom) {
+              var el0 = dom.createDocumentFragment();
+              var el1 = dom.createTextNode("    Boat/PWC Packages\n");
+              dom.appendChild(el0, el1);
+              return el0;
+            },
+            buildRenderNodes: function buildRenderNodes() {
+              return [];
+            },
+            statements: [],
+            locals: [],
+            templates: []
+          };
+        })();
+        var child1 = (function () {
+          return {
+            meta: {
+              "fragmentReason": false,
+              "revision": "Ember@2.6.2",
+              "loc": {
+                "source": null,
+                "start": {
+                  "line": 9,
+                  "column": 2
+                },
+                "end": {
+                  "line": 11,
+                  "column": 2
+                }
+              },
+              "moduleName": "client/templates/packages.hbs"
+            },
+            isEmpty: false,
+            arity: 0,
+            cachedFragment: null,
+            hasRendered: false,
+            buildFragment: function buildFragment(dom) {
+              var el0 = dom.createDocumentFragment();
+              var el1 = dom.createTextNode("    Motorcycle Packages\n  ");
+              dom.appendChild(el0, el1);
+              return el0;
+            },
+            buildRenderNodes: function buildRenderNodes() {
+              return [];
+            },
+            statements: [],
+            locals: [],
+            templates: []
+          };
+        })();
+        return {
+          meta: {
+            "fragmentReason": false,
+            "revision": "Ember@2.6.2",
+            "loc": {
+              "source": null,
+              "start": {
+                "line": 7,
+                "column": 2
+              },
+              "end": {
+                "line": 11,
+                "column": 2
+              }
+            },
+            "moduleName": "client/templates/packages.hbs"
+          },
+          isEmpty: false,
+          arity: 0,
+          cachedFragment: null,
+          hasRendered: false,
+          buildFragment: function buildFragment(dom) {
+            var el0 = dom.createDocumentFragment();
+            var el1 = dom.createComment("");
+            dom.appendChild(el0, el1);
+            return el0;
+          },
+          buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+            var morphs = new Array(1);
+            morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
+            dom.insertBoundary(fragment, 0);
+            dom.insertBoundary(fragment, null);
+            return morphs;
+          },
+          statements: [["block", "if", [["get", "is_boats_pwc", ["loc", [null, [7, 12], [7, 24]]]]], [], 0, 1, ["loc", [null, [7, 2], [11, 2]]]]],
+          locals: [],
+          templates: [child0, child1]
+        };
+      })();
+      return {
+        meta: {
+          "fragmentReason": false,
+          "revision": "Ember@2.6.2",
+          "loc": {
+            "source": null,
+            "start": {
+              "line": 5,
+              "column": 2
+            },
+            "end": {
+              "line": 11,
+              "column": 2
+            }
+          },
+          "moduleName": "client/templates/packages.hbs"
+        },
+        isEmpty: false,
+        arity: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createComment("");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+          var morphs = new Array(1);
+          morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
+          dom.insertBoundary(fragment, 0);
+          dom.insertBoundary(fragment, null);
+          return morphs;
+        },
+        statements: [["block", "if", [["get", "is_rvs_motorhomes", ["loc", [null, [5, 12], [5, 29]]]]], [], 0, 1, ["loc", [null, [5, 2], [11, 2]]]]],
+        locals: [],
+        templates: [child0, child1]
+      };
+    })();
+    var child2 = (function () {
+      return {
+        meta: {
+          "fragmentReason": false,
+          "revision": "Ember@2.6.2",
+          "loc": {
+            "source": null,
+            "start": {
+              "line": 16,
               "column": 4
             },
             "end": {
-              "line": 3,
+              "line": 16,
               "column": 72
             }
           },
@@ -3425,7 +3664,7 @@ define("client/templates/packages", ["exports"], function (exports) {
         templates: []
       };
     })();
-    var child1 = (function () {
+    var child3 = (function () {
       var child0 = (function () {
         return {
           meta: {
@@ -3434,11 +3673,11 @@ define("client/templates/packages", ["exports"], function (exports) {
             "loc": {
               "source": null,
               "start": {
-                "line": 6,
+                "line": 19,
                 "column": 8
               },
               "end": {
-                "line": 6,
+                "line": 19,
                 "column": 91
               }
             },
@@ -3461,7 +3700,7 @@ define("client/templates/packages", ["exports"], function (exports) {
             dom.insertBoundary(fragment, null);
             return morphs;
           },
-          statements: [["content", "package.title", ["loc", [null, [6, 74], [6, 91]]]]],
+          statements: [["content", "package.title", ["loc", [null, [19, 74], [19, 91]]]]],
           locals: [],
           templates: []
         };
@@ -3473,11 +3712,11 @@ define("client/templates/packages", ["exports"], function (exports) {
           "loc": {
             "source": null,
             "start": {
-              "line": 5,
+              "line": 18,
               "column": 6
             },
             "end": {
-              "line": 7,
+              "line": 20,
               "column": 6
             }
           },
@@ -3502,7 +3741,7 @@ define("client/templates/packages", ["exports"], function (exports) {
           morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
           return morphs;
         },
-        statements: [["block", "link-to", ["packages.package", ["get", "package.id", ["loc", [null, [6, 38], [6, 48]]]]], ["class", "list-group-item"], 0, null, ["loc", [null, [6, 8], [6, 103]]]]],
+        statements: [["block", "link-to", ["packages.package", ["get", "package.id", ["loc", [null, [19, 38], [19, 48]]]]], ["class", "list-group-item"], 0, null, ["loc", [null, [19, 8], [19, 103]]]]],
         locals: ["package"],
         templates: [child0]
       };
@@ -3510,7 +3749,8 @@ define("client/templates/packages", ["exports"], function (exports) {
     return {
       meta: {
         "fragmentReason": {
-          "name": "triple-curlies"
+          "name": "missing-wrapper",
+          "problems": ["multiple-nodes"]
         },
         "revision": "Ember@2.6.2",
         "loc": {
@@ -3520,7 +3760,7 @@ define("client/templates/packages", ["exports"], function (exports) {
             "column": 0
           },
           "end": {
-            "line": 14,
+            "line": 27,
             "column": 0
           }
         },
@@ -3532,6 +3772,24 @@ define("client/templates/packages", ["exports"], function (exports) {
       hasRendered: false,
       buildFragment: function buildFragment(dom) {
         var el0 = dom.createDocumentFragment();
+        var el1 = dom.createElement("div");
+        dom.setAttribute(el1, "class", "row-fluid");
+        dom.setAttribute(el1, "style", "text-align: center");
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("h2");
+        var el3 = dom.createTextNode("\n");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createComment("");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("  ");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
         var el1 = dom.createElement("div");
         dom.setAttribute(el1, "class", "row-fluid");
         var el2 = dom.createTextNode("\n  ");
@@ -3575,17 +3833,18 @@ define("client/templates/packages", ["exports"], function (exports) {
         return el0;
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-        var element0 = dom.childAt(fragment, [0]);
+        var element0 = dom.childAt(fragment, [2]);
         var element1 = dom.childAt(element0, [1]);
-        var morphs = new Array(3);
-        morphs[0] = dom.createMorphAt(element1, 1, 1);
-        morphs[1] = dom.createMorphAt(dom.childAt(element1, [3]), 1, 1);
-        morphs[2] = dom.createMorphAt(dom.childAt(element0, [3]), 1, 1);
+        var morphs = new Array(4);
+        morphs[0] = dom.createMorphAt(dom.childAt(fragment, [0, 1]), 1, 1);
+        morphs[1] = dom.createMorphAt(element1, 1, 1);
+        morphs[2] = dom.createMorphAt(dom.childAt(element1, [3]), 1, 1);
+        morphs[3] = dom.createMorphAt(dom.childAt(element0, [3]), 1, 1);
         return morphs;
       },
-      statements: [["block", "link-to", ["admin.packages.new"], ["class", "btn btn-default"], 0, null, ["loc", [null, [3, 4], [3, 84]]]], ["block", "each", [["get", "model", ["loc", [null, [5, 14], [5, 19]]]]], [], 1, null, ["loc", [null, [5, 6], [7, 15]]]], ["content", "outlet", ["loc", [null, [11, 4], [11, 14]]]]],
+      statements: [["block", "if", [["get", "is_cars_trucks", ["loc", [null, [3, 8], [3, 22]]]]], [], 0, 1, ["loc", [null, [3, 2], [11, 9]]]], ["block", "link-to", ["admin.packages.new"], ["class", "btn btn-default"], 2, null, ["loc", [null, [16, 4], [16, 84]]]], ["block", "each", [["get", "model", ["loc", [null, [18, 14], [18, 19]]]]], [], 3, null, ["loc", [null, [18, 6], [20, 15]]]], ["content", "outlet", ["loc", [null, [24, 4], [24, 14]]]]],
       locals: [],
-      templates: [child0, child1]
+      templates: [child0, child1, child2, child3]
     };
   })());
 });
