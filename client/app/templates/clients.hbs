@@ -1,0 +1,13 @@
+<div class="row-fluid">
+  <div class="col-md-2">
+    {{#link-to 'admin.clients.new' class="btn btn-default"}}Add Client{{/link-to}}
+    <div class="list-group">
+      {{#each model as |client|}}
+        {{#link-to 'clients.client' client.id class="list-group-item"}}{{client.last_name}}, {{client.first_name}}{{/link-to}}
+      {{/each}}
+    </div>
+  </div>
+  <div class="col-md-10">
+    {{outlet}}
+  </div>
+</div>

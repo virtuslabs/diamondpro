@@ -1,0 +1,19 @@
+<div class="row-fluid" style="text-align: center">
+  <h2>
+  {{#if is_cars_trucks}}
+    Car/Truck Packages
+  {{else if is_rvs_motorhomes}}
+    RV/Motorhome Packages
+  {{else if is_boats_pwc}}
+    Boat/PWC Packages
+  {{else}}
+    Motorcycle Packages
+  {{/if}}
+  </h2>
+</div>
+<div class="row" style="text-align: center">
+{{#each model as |package|}}
+  {{#package-component package=package}}
+  {{/package-component}}
+{{/each}}
+</div>
