@@ -3,7 +3,6 @@ client/bower_components
 client/tmp
 client/dist
 server/node_modules
-docker-machine-driver-scaleway
 # App artifacts
 server/_build
 server/db
