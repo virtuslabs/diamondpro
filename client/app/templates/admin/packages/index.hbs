@@ -1,0 +1,7 @@
+<div class="row-fluid">
+  {{#each model as |package|}}
+    {{#package-component package=package}}
+    {{/package-component}}
+  {{/each}}
+  </div>
+{{outlet}}

@@ -16,7 +16,9 @@
     <div class="collapse navbar-collapse" id="main-navbar">
       <ul class="nav navbar-nav">
             {{#link-to 'index' tagName="li"}}<a href="">Home</a>{{/link-to}}
-            {{#link-to 'clients' tagName="li"}}<a href="">Clients</a>{{/link-to}}
+            {{#if isAdmin}}
+              {{#link-to 'admin.clients' tagName="li"}}<a href="">Clients</a>{{/link-to}}
+            {{/if}}
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Detailing Services<span class="caret"></span></a>
               <ul class="dropdown-menu">
@@ -31,10 +33,13 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hello User! <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hello {{session.data.authenticated.profile.name}}! <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Login</a></li>
-            <li><a href="#">Logout</a></li>
+            {{#if session.isAuthenticated}}
+              <a {{ action 'logout' }}>Logout</a>
+            {{else}}
+              <a {{ action 'login' }}>Login</a>
+            {{/if}}
           </ul>
         </li>
       </ul>
